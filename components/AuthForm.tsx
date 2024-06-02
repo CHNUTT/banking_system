@@ -75,60 +75,54 @@ const AuthForm = ({ type }: { type: string }) => {
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
               {type === FORM_TYPES.SIGN_UP && (
                 <>
-                  <CustomInput
-                    control={form.control}
-                    name='firstName'
-                    label='First Name'
-                    placeholder='Enter your First Name'
-                  />
-                  <CustomInput
-                    control={form.control}
-                    name='lastName'
-                    label='Last Name'
-                    placeholder='Enter your Last Name'
-                  />
+                  <div className='flex gap-4'>
+                    <CustomInput
+                      control={form.control}
+                      name='firstName'
+                      label='First Name'
+                      placeholder='Enter your First Name'
+                    />
+                    <CustomInput
+                      control={form.control}
+                      name='lastName'
+                      label='Last Name'
+                      placeholder='Enter your Last Name'
+                    />
+                  </div>
                   <CustomInput
                     control={form.control}
                     name='address1'
                     label='Address'
                     placeholder='Enter your specific Address'
                   />
-                  <CustomInput
-                    control={form.control}
-                    name='state'
-                    label='State'
-                    placeholder='ex: NY'
-                  />
-                  <CustomInput
-                    control={form.control}
-                    name='postalCode'
-                    label='Postal Code'
-                    placeholder='11111'
-                  />
-                  <CustomInput
-                    control={form.control}
-                    name='dateOfBirth'
-                    label='Date of Birth'
-                    placeholder='YYYY-MM-DD'
-                  />
-                  <CustomInput
-                    control={form.control}
-                    name='ssn'
-                    label='SSN'
-                    placeholder='Example: 11101'
-                  />
-                  <CustomInput
-                    control={form.control}
-                    name='email'
-                    label='Email'
-                    placeholder='Enter your Email'
-                  />
-                  <CustomInput
-                    control={form.control}
-                    name='password'
-                    label='Password'
-                    placeholder='Enter your Password'
-                  />
+                  <div className='flex gap-4'>
+                    <CustomInput
+                      control={form.control}
+                      name='state'
+                      label='State'
+                      placeholder='ex: NY'
+                    />
+                    <CustomInput
+                      control={form.control}
+                      name='postalCode'
+                      label='Postal Code'
+                      placeholder='11111'
+                    />
+                  </div>
+                  <div className='flex gap-4'>
+                    <CustomInput
+                      control={form.control}
+                      name='dateOfBirth'
+                      label='Date of Birth'
+                      placeholder='YYYY-MM-DD'
+                    />
+                    <CustomInput
+                      control={form.control}
+                      name='ssn'
+                      label='SSN'
+                      placeholder='Example: 11101'
+                    />
+                  </div>
                 </>
               )}
               <CustomInput
