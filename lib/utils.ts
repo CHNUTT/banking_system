@@ -203,6 +203,7 @@ export const authFormSchema = (type: string) =>
     firstName: type === 'sign-in' ? zodStringOptional() : z.string().min(3),
     lastName: 'sign-in' ? zodStringOptional() : z.string().min(3),
     address1: 'sign-in' ? zodStringOptional() : z.string().max(50),
+    city: 'sign-in' ? zodStringOptional() : z.string().max(50),
     state: 'sign-in' ? zodStringOptional() : z.string().min(2).max(2),
     postalCode: 'sign-in' ? zodStringOptional() : z.string().min(5).max(5),
     dateOfBirth: 'sign-in' ? zodStringOptional() : z.string().min(3),
