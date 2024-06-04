@@ -7,8 +7,6 @@ import { useRouter } from 'next/navigation';
 const Footer = ({ user, type = 'desktop' }: FooterProps) => {
   const router = useRouter();
 
-  console.log(user);
-
   const handleLogout = async () => {
     const loggedOut = await logout();
 
