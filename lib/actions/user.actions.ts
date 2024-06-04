@@ -3,7 +3,7 @@
 import { ID } from 'node-appwrite';
 import { createAdminClient, createSessionClient } from '../appwrite';
 import { cookies } from 'next/headers';
-import { extractCustomerIdFromUrl, parseStringify } from '../utils';
+import { encryptId, extractCustomerIdFromUrl, parseStringify } from '../utils';
 import {
   CountryCode,
   ProcessorTokenCreateRequest,
@@ -11,7 +11,8 @@ import {
   Products,
 } from 'plaid';
 import { plaidClient } from '../plaid';
-import { createDwollaCustomer } from './dwolla.actions';
+import { addFundingSource, createDwollaCustomer } from './dwolla.actions';
+import { revalidatePath } from 'next/cache';
 
 const {
   APPWRITE_DATABASE_ID: DATABASE_ID,
@@ -213,7 +214,7 @@ export const exchangePublicToken = async ({
       accountId: accountData.account_id,
       accessToken,
       fundingSourceUrl,
-      shareableId: encryptId(accountData.account_id),
+      sharableId: encryptId(accountData.account_id),
     });
 
     // Revalidate the path to reflect the changes
