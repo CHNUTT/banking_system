@@ -281,3 +281,25 @@ export const getBanks = async ({ userId }: getBanksProps) => {
     console.log(error);
   }
 };
+
+export const getBankByAccountId = async ({
+  accountId,
+}: getBankByAccountIdProps) => {
+  try {
+    const { database } = await createAdminClient();
+
+    const banks = await database.listDocuments(
+      DATABASE_ID!,
+      BANK_COLLECTION_ID!,
+      [Query.equal('accountId', [accountId])]
+    );
+
+    if (banks.total !== 1) {
+      return null;
+    }
+
+    return parseStringify(banks.documents[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
