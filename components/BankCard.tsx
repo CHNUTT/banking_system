@@ -1,6 +1,7 @@
 import { formatAmount } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import Copy from './Copy';
 
 const BankCard = ({ account, userName, showBalance }: CreditCardProps) => {
   return (
@@ -44,6 +45,9 @@ const BankCard = ({ account, userName, showBalance }: CreditCardProps) => {
           className='absolute top-0 left-0'
         />
       </Link>
+      {showBalance && (
+        <Copy title={account?.sharableId} key={account.appwriteItemId} />
+      )}
     </div>
   );
 };
